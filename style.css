@@ -1,7 +1,7 @@
 /*フォント変更*/
 @font-face {
     font-family: "dotfont";
-    src: url("font/BestTen-DOT.otf") format("truetype");
+    src: url("BestTen-DOT.otf") format("truetype");
     font-display: swap;
 }
 
