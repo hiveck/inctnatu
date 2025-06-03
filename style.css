@@ -1,0 +1,139 @@
+/*フォント変更*/
+@font-face {
+    font-family: "dotfont";
+    src: url("font/BestTen-DOT.otf") format("truetype");
+    font-display: swap;
+}
+
+body {
+    height: 5000px;
+    /*サイトの縦幅*/
+    color: rgb(13, 10, 104);
+    background-color: #e9e9f2;
+    font-family: "dotfont", sans-serif;
+}
+
+/*画面遷移前*/
+.text1 {
+    position: relative;
+    font-size: 36px;
+    color: black;
+    z-index: 1;
+}
+
+/*画面遷移後*/
+.text2 {
+    font-family: "dotfont", sans-serif;
+    position: relative;
+    font-size: 24px;
+    color: rgb(244, 243, 159);
+    z-index: 3;
+}
+
+.circle {
+    /*円の見た目を設定*/
+    width: 100px;
+    height: 100px;
+    transform: scale(1);
+    background-color: rgb(6, 51, 62);
+    border-radius: 50%;
+    /*円の位置を画面中央に固定*/
+    position: fixed;
+    left: calc(50% - 50px);
+    top: calc(50% - 50px);
+    opacity: 0;
+    transition: opacity 0.3s, transform 0.2s;
+    z-index: 2;
+}
+
+/*
+#wrapper {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin: 70px auto;
+}
+
+画像をスライド表示
+
+@keyframes slidetitle {
+    0% {
+        opacity: 0;
+        transform: translate(0, 150px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0, 0);
+    }
+}
+
+.slidetitle {
+    animation-name: slidetitle;
+    animation-duration: 2s;
+    animation-timing-function: ease;
+}
+
+*/
+
+.slideimage {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin: 70px auto;
+}
+
+/*画像が画面内に入ったら表示*/
+.slide-up {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 1s ease;
+}
+
+.slide-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/*メニューバーを表示*/
+* {
+    box-sizing: border-box;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between; /* 左右に要素を分散 */
+  align-items: center;            /* 縦中央揃え */
+  background: #000000;
+  padding: 0.5em 1em;
+  font-family: "dotfont", sans-serif;
+}
+
+.navbar-title {
+  color: #fff;
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.navbar-menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex; /* 横並び */
+  gap: 1em;      /* メニュー間のスペース */
+}
+
+.navbar-menu li a {
+  color: #fff;
+  text-decoration: none;
+  display: block;
+  padding: 0.5em 0.8em;
+  text-align: center;
+  font-size: 14px;
+}
+
+.navbar-menu li a:hover {
+  background-color: #a2cfe8;
+  border-radius: 4px;
+}
