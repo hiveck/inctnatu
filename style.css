@@ -1,16 +1,61 @@
 /*フォント変更*/
 @font-face {
     font-family: "dotfont";
-    src: url("BestTen-DOT.otf") format("truetype");
+    src: url("BestTen-DOT.otf") format("opentype");
     font-display: swap;
 }
 
+.fade {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.fade.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 body {
-    height: 5000px;
+    height: 4000px;
     /*サイトの縦幅*/
     color: rgb(13, 10, 104);
     background-color: #e9e9f2;
     font-family: "dotfont", sans-serif;
+}
+
+.back-img {
+    position: relative;
+    padding: 100px 0;
+    width: 100%;
+    background-color: transparent;
+}
+
+.back-img::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('photo1.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: right;
+    opacity: 0.3;
+    z-index: 0;
+}
+
+.back-img .slideimage {
+    position: relative;
+    z-index: 1;
+}
+
+.title {
+    position: relative;
+    font-size: 48px;
+    color: black;
+    background-color: gainsboro;
 }
 
 /*画面遷移前*/
@@ -20,6 +65,70 @@ body {
     color: black;
     z-index: 1;
 }
+
+/*画像を左、テキストを右に表示↓*/
+.text1-img {
+    display: flex;
+    /*横並び*/
+    margin: 40px 0;
+}
+
+.text1-img .image {
+    width: 640px;
+    /*画像サイズ指定*/
+    margin: 0;
+    padding: 0;
+}
+
+.text1-img .image img {
+    width: 100%;
+    height: auto;
+}
+
+.text1-img .right {
+    margin: 0 0 0 20px;
+    padding: 0;
+}
+
+.text1-img .title {
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+    font-size: 36px;
+}
+
+.text1-img .text {
+    margin: 10px 0 0;
+    padding: 0;
+}
+
+/*画像を左、テキストを右に表示↑*/
+/*画像を右、テキストを左に表示↓*/
+.text1-img-right {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 40px 0;
+}
+
+.text1-img-right .text {
+    margin-right: 10px;
+    flex: 1;
+}
+
+.text1-img-right .image {
+    flex-shrink: 0;
+}
+
+.text1-img-right .image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+
+/*画像を右、テキストを左に表示↑*/
+
 
 /*画面遷移後*/
 .text2 {
@@ -83,7 +192,7 @@ body {
     margin: 70px auto;
 }
 
-/*画像が画面内に入ったら表示*/
+/* 画像が画面内に入ったら表示*/
 .slide-up {
     opacity: 0;
     transform: translateY(50px);
@@ -102,38 +211,42 @@ body {
 }
 
 .navbar {
-  display: flex;
-  justify-content: space-between; /* 左右に要素を分散 */
-  align-items: center;            /* 縦中央揃え */
-  background: #000000;
-  padding: 0.5em 1em;
-  font-family: "dotfont", sans-serif;
+    display: flex;
+    justify-content: space-between;
+    /* 左右に要素を分散 */
+    align-items: center;
+    /* 縦中央揃え */
+    background: #000000;
+    padding: 0.5em 1em;
+    font-family: "dotfont", sans-serif;
 }
 
 .navbar-title {
-  color: #fff;
-  font-weight: bold;
-  font-size: 30px;
+    color: #fff;
+    font-weight: bold;
+    font-size: 30px;
 }
 
 .navbar-menu {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex; /* 横並び */
-  gap: 1em;      /* メニュー間のスペース */
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    /* 横並び */
+    gap: 1em;
+    /* メニュー間のスペース */
 }
 
 .navbar-menu li a {
-  color: #fff;
-  text-decoration: none;
-  display: block;
-  padding: 0.5em 0.8em;
-  text-align: center;
-  font-size: 14px;
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    padding: 0.5em 0.8em;
+    text-align: center;
+    font-size: 14px;
 }
 
 .navbar-menu li a:hover {
-  background-color: #a2cfe8;
-  border-radius: 4px;
+    background-color: #a2cfe8;
+    border-radius: 4px;
 }
